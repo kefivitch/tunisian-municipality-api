@@ -15,9 +15,16 @@ class TunisianMunicipality
         $this->baseUrl = rtrim($baseUrl, '/');
     }
 
-    public function getMunicipalities(): array
+    public function getMunicipalities(array $filters = []): array
     {
-        $response = $this->client->get($this->baseUrl . '/municipalities');
+        $url = $this->baseUrl . '/municipalities';
+
+        if (!empty($filters)) {
+            $url .= '?' . http_build_query($filters);
+        }
+
+        $response = $this->client->get($url);
+
         return json_decode((string) $response->getBody(), true);
     }
 }
