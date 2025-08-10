@@ -1,8 +1,9 @@
 # Tunisian Municipality API
 
-Laravel package to consume the [Tunisian Municipality API](https://tn-municipality-api.vercel.app/api).
-
-## Installation
+Laravel package to consume the [Tunisian Municipality API](https://tn-municipality-api.vercel.app/api).  
+<p align="center">
+  <img src="assets/logo.png" alt="Tunisian Municipality API" width="350">
+</p>## Installation
 
 ```bash
 composer require kefivitch/tunisian-municipality-api
