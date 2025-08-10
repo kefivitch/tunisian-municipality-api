@@ -1,0 +1,32 @@
+{
+    "name": "tunisian-municipality/api",
+    "description": "Laravel package to consume Tunisian Municipality API",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "TunisianMunicipality\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "TunisianMunicipality\\TunisianMunicipalityServiceProvider"
+            ],
+            "aliases": {
+                "TunisianMunicipality": "TunisianMunicipality\\Facades\\TunisianMunicipality"
+            }
+        }
+    },
+    "require": {
+        "php": "^8.0",
+        "illuminate/support": "^10.0|^11.0",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}
