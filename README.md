@@ -5,7 +5,7 @@ Laravel package to consume the [Tunisian Municipality API](https://tn-municipali
 ## Installation
 
 ```bash
-composer require tunisian-municipality/api
+composer require kefivitch/tunisian-municipality-api
 ```
 
 If your Laravel version does not support package auto-discovery, register the service provider and facade:

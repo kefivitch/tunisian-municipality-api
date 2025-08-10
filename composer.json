@@ -1,5 +1,6 @@
 {
-    "name": "tunisian-municipality/api",
+    "name": "kefivitch/tunisian-municipality-api",
+    "version": "1.0",
     "description": "Laravel package to consume Tunisian Municipality API",
     "type": "library",
     "license": "MIT",
