@@ -1,6 +1,6 @@
 # Tunisian Municipality API
 
-Laravel package to consume the [Tunisian Municipality API](https://tn-municipality-api.vercel.app/).
+Laravel package to consume the [Tunisian Municipality API](https://tn-municipality-api.vercel.app/api).
 
 ## Installation
 
@@ -13,11 +13,11 @@ If your Laravel version does not support package auto-discovery, register the se
 ```php
 // config/app.php
 'providers' => [
-    TunisianMunicipality\TunisianMunicipalityServiceProvider::class,
+    TunisianMunicipality\\TunisianMunicipalityServiceProvider::class,
 ],
 
 'aliases' => [
-    'TunisianMunicipality' => TunisianMunicipality\Facades\TunisianMunicipality::class,
+    'TunisianMunicipality' => TunisianMunicipality\\Facades\\TunisianMunicipality::class,
 ],
 ```
 
@@ -26,9 +26,10 @@ If your Laravel version does not support package auto-discovery, register the se
 ### Basic example
 
 ```php
-use TunisianMunicipality\Facades\TunisianMunicipality;
+use TunisianMunicipality\\Facades\\TunisianMunicipality;
 
 $municipalities = TunisianMunicipality::getMunicipalities();
+// $municipalities is an Illuminate\\Support\\Collection instance
 ```
 
 ### Filtering results
@@ -46,10 +47,10 @@ $filtered = TunisianMunicipality::getMunicipalities([
 ### Custom client or base URL
 
 ```php
-use GuzzleHttp\Client;
-use TunisianMunicipality\TunisianMunicipality as MunicipalityClient;
+use GuzzleHttp\\Client;
+use TunisianMunicipality\\TunisianMunicipality as MunicipalityClient;
 
-$client = new MunicipalityClient(new Client(), 'https://tn-municipality-api.vercel.app');
+$client = new MunicipalityClient(new Client(), 'https://tn-municipality-api.vercel.app/api');
 $all = $client->getMunicipalities();
 ```
 

@@ -3,19 +3,20 @@
 namespace TunisianMunicipality;
 
 use GuzzleHttp\Client;
+use Illuminate\Support\Collection;
 
 class TunisianMunicipality
 {
     protected Client $client;
     protected string $baseUrl;
 
-    public function __construct(?Client $client = null, string $baseUrl = 'https://tn-municipality-api.vercel.app')
+    public function __construct(?Client $client = null, string $baseUrl = 'https://tn-municipality-api.vercel.app/api')
     {
         $this->client = $client ?: new Client();
         $this->baseUrl = rtrim($baseUrl, '/');
     }
 
-    public function getMunicipalities(array $filters = []): array
+    public function getMunicipalities(array $filters = []): Collection
     {
         $url = $this->baseUrl . '/municipalities';
 
@@ -25,6 +26,6 @@ class TunisianMunicipality
 
         $response = $this->client->get($url);
 
-        return json_decode((string) $response->getBody(), true);
+        return new Collection(json_decode((string) $response->getBody(), true));
     }
 }

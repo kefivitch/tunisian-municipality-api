@@ -7,12 +7,13 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Middleware;
+use Illuminate\Support\Collection;
 use PHPUnit\Framework\TestCase;
 use TunisianMunicipality\TunisianMunicipality;
 
 class TunisianMunicipalityTest extends TestCase
 {
-    public function test_get_municipalities_returns_array(): void
+    public function test_get_municipalities_returns_collection(): void
     {
         $mock = new MockHandler([
             new Response(200, [], json_encode([["id" => 1, "name" => "Test"]]))
@@ -25,8 +26,8 @@ class TunisianMunicipalityTest extends TestCase
 
         $response = $api->getMunicipalities();
 
-        $this->assertIsArray($response);
-        $this->assertSame('Test', $response[0]['name']);
+        $this->assertInstanceOf(Collection::class, $response);
+        $this->assertSame('Test', $response->first()['name']);
     }
 
     public function test_get_municipalities_with_filters_adds_query_parameters(): void
